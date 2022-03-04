@@ -1,3 +1,4 @@
+import { NavigationContainer } from "@react-navigation/native";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 
@@ -18,7 +19,7 @@ if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   };
 
-// SignUp Function
+  // SignUp Function
 export const handleSignUp = async (email, password) => {
     await firebase
       .auth()
@@ -29,6 +30,7 @@ export const handleSignUp = async (email, password) => {
       })
       .catch((error) => {
         console.error(error);
+        alert(error);
       });
   };
 

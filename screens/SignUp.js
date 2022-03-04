@@ -51,6 +51,7 @@ const SignUp = ({ navigation }) => {
     } else {
       try {
         await handleSignUp(email, password);
+        navigation.navigate('Profile', { name: 'Profile' });
       } catch (error) {
         console.error(error);
       }

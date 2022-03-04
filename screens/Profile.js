@@ -4,7 +4,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import { handleSignout } from  "../services/Firebase";
 import firebase from "firebase/compat/app";
 
-const Profile = ( {navigation }) => {
+const Profile = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text>{firebase.auth().currentUser.email}</Text>
@@ -13,7 +13,6 @@ const Profile = ( {navigation }) => {
         style={styles.button}
         onPress={() => {
           handleSignout();
-          navigation.navigate('SignIn', { name: 'SignIn' })
           console.log("user signed out");
         }}
       >
