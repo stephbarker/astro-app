@@ -4,7 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { handleSignIn } from "../services/Firebase";
 
-const SignIn = () => {
+const SignIn = ( {navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisibility] = useState({ name: "eye-off" });
@@ -100,7 +100,7 @@ const SignIn = () => {
         </Pressable>
         <Pressable
         onPress={() => {
-          navigation.navigate("SignUpScreen");
+          navigation.navigate('SignUp', { name: 'SignUp' })
         }}
           style={{
             alignItems: "center",

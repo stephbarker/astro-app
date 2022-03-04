@@ -5,11 +5,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { handleSignUp } from "../services/Firebase";
 
 
-const SignUp = () => {
+const SignUp = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [visible, setVisibility] = React.useState({ name: "eye-off" });
+  const [visible, setVisibility] = useState({ name: "eye-off" });
 
   //Toggles the eye icon to show the password
   const ToggleVisibilty = () => {
@@ -120,6 +120,9 @@ const SignUp = () => {
           />
         </View>
         <Pressable
+          onPress={() =>
+            navigation.navigate('SignIn', { name: 'SignIn' })
+          }
           style={styles.registerContainer}
         >
           <Text style={styles.register}>want to sign in?</Text>
