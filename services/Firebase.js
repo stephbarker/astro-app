@@ -1,4 +1,5 @@
-import firebase from "firebase";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -15,4 +16,44 @@ const firebaseConfig = {
 // Initialize Firebase
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
+  };
+
+// SignUp Function
+export const handleSignUp = async (email, password) => {
+    await firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        console.log(firebase.auth().currentUser);
+        const user = firebase.auth().currentUser;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  // SignIn Function
+export const handleSignIn = async (email, password) => {
+    await firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        console.log(firebase.auth().currentUser);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  //SignOut Function
+export const handleSignout = async () => {
+    await firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        console.log("Signed Out");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
