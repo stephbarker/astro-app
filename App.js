@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { View } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+
+import Profile from "./screens/Profile";
+import SignIn from "./screens/SignIn";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const [user, setUser] = useState();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      setUser(user);
+    });
+  }, []);
+
+  const User = firebase.auth().currentUser;
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        {User ?
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+        />
+        :
+        <Stack.Screen name="SignIn" component={SignIn} />
+        }
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
