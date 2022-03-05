@@ -29,7 +29,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         {User ?
-        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Profile" component={Profile} options={{ title: 'Horoscopes'}} />
         :
         <Stack.Screen name="SignIn" component={SignIn} options={{ title: 'Sign In' }} />
         }
