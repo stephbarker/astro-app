@@ -34,7 +34,7 @@ export default function App() {
         <Stack.Screen name="SignIn" component={SignIn} options={{ title: 'Sign In' }} />
         }
         <Stack.Screen name="SignUp" component={SignUp} options={{ title: 'Sign Up' }} />
-        <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Screen name="Detail" component={Detail} options={{ title: 'Your Daily Horoscope' }} />
         <Stack.Screen name="TarotCard" component={TarotCard} options={{ title: 'Your Tarot Card' }}/>
       </Stack.Navigator>
     </NavigationContainer>
