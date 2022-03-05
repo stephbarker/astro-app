@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View } from "react-native";
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -9,6 +9,7 @@ import "firebase/compat/auth";
 import Profile from "./screens/Profile";
 import SignIn from "./screens/SignIn";
 import SignUp from "./screens/SignUp";
+import Detail from "./screens/Detail";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,7 @@ export default function App() {
         <Stack.Screen name="SignIn" component={SignIn} />
         }
         <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
-
-import horoscopeList from "../data";
 
 import { handleSignout } from  "../services/Firebase";
 
-import firebase from "firebase/compat/app";
+import horoscopeList from "../data";
 
 const Profile = ({ navigation }) => {
-  const[horoscopes, setHoroscopes] = useState(horoscopeList);
-  
+  const[horoscopes] = useState(horoscopeList);
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonCtr}>
@@ -26,12 +24,11 @@ const Profile = ({ navigation }) => {
       {horoscopes.map((horoscope) => {
       const { id, img, sign, daily } = horoscope;
       return (
-           <View key={id}>
+           <Pressable key={id} onPress={() => navigation.navigate('Detail', { horoscope: horoscope })}>
              <Image style={styles.img} source={img}/>
-           </View>        
+           </Pressable>        
     );
   })}
-
     </View>
   );
 };
