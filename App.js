@@ -10,6 +10,7 @@ import Profile from "./screens/Profile";
 import SignIn from "./screens/SignIn";
 import SignUp from "./screens/SignUp";
 import Detail from "./screens/Detail";
+import TarotCard from "./screens/TarotCard";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,10 +31,11 @@ export default function App() {
         {User ?
         <Stack.Screen name="Profile" component={Profile} />
         :
-        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="SignIn" component={SignIn} options={{ title: 'Sign In' }} />
         }
-        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="SignUp" component={SignUp} options={{ title: 'Sign Up' }} />
         <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Screen name="TarotCard" component={TarotCard} options={{ title: 'Your Tarot Card' }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
