@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [user, setUser] = useState();
-
+  
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       setUser(user);

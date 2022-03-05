@@ -1,14 +1,18 @@
-import React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Pressable, StyleSheet, Text, View, Image } from "react-native";
+
+import horoscopeList from "../data";
 
 import { handleSignout } from  "../services/Firebase";
+
 import firebase from "firebase/compat/app";
 
 const Profile = ({ navigation }) => {
+  const[horoscopes, setHoroscopes] = useState(horoscopeList);
+  
   return (
     <View style={styles.container}>
-      <Text>{firebase.auth().currentUser.email}</Text>
-
+      <View style={styles.buttonCtr}>
       <Pressable
         style={styles.button}
         onPress={() => {
@@ -16,8 +20,18 @@ const Profile = ({ navigation }) => {
           console.log("user signed out");
         }}
       >
-        <Text>sign out</Text>
+        <Text>Sign Out</Text>
       </Pressable>
+      </View>
+      {horoscopes.map((horoscope) => {
+      const { id, img, sign, daily } = horoscope;
+      return (
+           <View key={id}>
+             <Image style={styles.img} source={img}/>
+           </View>        
+    );
+  })}
+
     </View>
   );
 };
@@ -26,20 +40,28 @@ export default Profile;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
     backgroundColor: "#fff",
-    alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
+  },
+  img: {
+    margin: 20,
+    borderRadius: 25,
+    height: 150,
+    width: 150,
+  },
+  buttonCtr: {
+    display: "block",
   },
   button: {
-    position: "absolute",
-    top: 25,
     backgroundColor: "#11DDAA",
-    display: "flex",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 15,
-    height: 55,
-    width: 55,
+    height: 35,
+    width: 85,
   },
 });
