@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
 import { useFonts, BebasNeue_400Regular } from "@expo-google-fonts/dev";
 
-import { handleSignout } from  "../services/Firebase";
+import SignOutButton from "../components/SignOutButton";
+
+// import { handleSignout } from  "../services/Firebase";
 
 import horoscopeList from "../data";
 
@@ -16,7 +18,7 @@ const Profile = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.buttonCtr}>
+      {/* <View style={styles.buttonCtr}>
       <Pressable
         style={styles.button}
         onPress={() => {
@@ -26,7 +28,7 @@ const Profile = ({ navigation }) => {
       >
         <Text style={styles.buttonTxt}>Sign Out</Text>
       </Pressable>
-      </View>
+      </View> */}
       {horoscopes.map((horoscope) => {
       const { id, img, sign, daily } = horoscope;
       return (
@@ -35,6 +37,7 @@ const Profile = ({ navigation }) => {
            </Pressable>        
     );
   })}
+        <SignOutButton />
     </View>
     );
   };

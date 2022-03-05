@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
 import { useFonts, BebasNeue_400Regular, OpenSans_400Regular } from "@expo-google-fonts/dev";
 
+import SignOutButton from "../components/SignOutButton";
+
 const Detail = ({ navigation, route }) => {
   
   //Access Google Fonts
@@ -21,7 +23,8 @@ const Detail = ({ navigation, route }) => {
         <Text style={styles.daily}>{horoscope.daily}</Text>
         <Pressable style={styles.randoBtn} onPress={() => navigation.navigate('TarotCard', { name: 'TarotCard' })}>
              <Text style={styles.randoBtnText}>Random Tarot Card?</Text>
-           </Pressable>   
+           </Pressable> 
+           <SignOutButton />  
       </View>
     );
   };
@@ -61,6 +64,7 @@ const Detail = ({ navigation, route }) => {
       height: 35,
       width: 160,
       marginTop: 25,
+      marginBottom: 25,
     },
     randoBtnText: {
       color: "#fff",

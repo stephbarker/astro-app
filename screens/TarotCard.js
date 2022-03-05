@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text, View, FlatList } from "react-native";
 import { useFonts, BebasNeue_400Regular, OpenSans_400Regular } from "@expo-google-fonts/dev";
 
 import { getTarotCard } from "../services/tarot-api";
+import SignOutButton from "../components/SignOutButton";
 
 
 const TarotCard = (props) => {
@@ -26,7 +27,7 @@ const TarotCard = (props) => {
   }, []);
 
     return (
-      <View>
+      <View style={styles.screenCtr}>
         <FlatList
             data={tarotCard.cards}
             keyExtractor={({ id }, index) => id}
@@ -39,6 +40,9 @@ const TarotCard = (props) => {
               </View>
             )}
           />
+          <View style={styles.btnCtr}>
+          <SignOutButton />
+          </View>
       </View>
     );
   };
@@ -46,10 +50,13 @@ const TarotCard = (props) => {
   export default TarotCard;
 
   const styles = StyleSheet.create({
-    cardCtr: {
+    screenCtr: {
       paddingTop: '10%',
       backgroundColor: "#fff",
       height: "100vh",
+    },
+    cardCtr: {
+      
     },
     cardTitle: {
       display: "flex",
@@ -71,4 +78,9 @@ const TarotCard = (props) => {
       margin: 20,
       fontFamily: "OpenSans_400Regular",
     },
+    btnCtr: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }
   });

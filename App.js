@@ -28,14 +28,19 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {User ?
+        {User ? (
+        <Stack.Group>
         <Stack.Screen name="Profile" component={Profile} options={{ title: 'Horoscopes'}} />
-        :
-        <Stack.Screen name="SignIn" component={SignIn} options={{ title: 'Sign In' }} />
-        }
-        <Stack.Screen name="SignUp" component={SignUp} options={{ title: 'Sign Up' }} />
         <Stack.Screen name="Detail" component={Detail} options={{ title: 'Your Daily Horoscope' }} />
         <Stack.Screen name="TarotCard" component={TarotCard} options={{ title: 'Your Tarot Card' }}/>
+        </Stack.Group>
+        ) : (
+        <Stack.Group>
+        <Stack.Screen name="SignIn" component={SignIn} options={{ title: 'Sign In' }} />
+        <Stack.Screen name="SignUp" component={SignUp} options={{ title: 'Sign Up' }} />
+        </Stack.Group>
+        )}
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
