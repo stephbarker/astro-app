@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
+import { useFonts, BebasNeue_400Regular } from "@expo-google-fonts/dev";
 
 import { handleSignout } from  "../services/Firebase";
 
@@ -7,6 +8,11 @@ import horoscopeList from "../data";
 
 const Profile = ({ navigation }) => {
   const[horoscopes] = useState(horoscopeList);
+
+  //Access Google Fonts
+  useFonts({
+    BebasNeue_400Regular,
+  });
 
   return (
     <View style={styles.container}>
@@ -18,7 +24,7 @@ const Profile = ({ navigation }) => {
           console.log("user signed out");
         }}
       >
-        <Text>Sign Out</Text>
+        <Text style={styles.buttonTxt}>Sign Out</Text>
       </Pressable>
       </View>
       {horoscopes.map((horoscope) => {
@@ -30,8 +36,8 @@ const Profile = ({ navigation }) => {
     );
   })}
     </View>
-  );
-};
+    );
+  };
 
 export default Profile;
 
@@ -54,11 +60,18 @@ const styles = StyleSheet.create({
     display: "block",
   },
   button: {
-    backgroundColor: "#11DDAA",
+    backgroundColor: "#FF512F",
+    backgroundImage: "linear-gradient(to right, #FF512F, #DD2476)",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 15,
     height: 35,
     width: 85,
   },
+  buttonTxt: {
+    color: "#fff",
+    fontFamily: "BebasNeue_400Regular",
+    fontSize: 18,
+    fontStyle: "italic",
+  }
 });
