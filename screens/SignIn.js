@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Image, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useFonts, BebasNeue_400Regular, OpenSans_400Regular } from "@expo-google-fonts/dev";
 
 import { handleSignIn } from "../services/Firebase";
 
@@ -8,6 +9,11 @@ const SignIn = ( {navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisibility] = useState({ name: "eye-off" });
+
+  useFonts({
+    BebasNeue_400Regular,
+    OpenSans_400Regular,
+  });
 
   const ToggleVisibilty = () => {
     if (visible.name === "eye") {
@@ -48,57 +54,7 @@ const SignIn = ( {navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text
-          style={{
-            fontSize: 40,
-            color: "#fff",
-          }}
-        >
-          Sign in
-        </Text>
-        {/* <Image
-          source={require("../../assets/images/broxnbg.png")}
-          style={{ height: 30, width: 50, top: 9, transform: [{ rotate: "-10deg" }] }}
-        /> */}
-      </View>
-      <View style={styles.form}>
-        <TextInput
-          style={styles.email}
-          defaultValue={email}
-          onChangeText={handleEmailChange}
-          textContentType="emailAddress"
-          placeholder="Email Address"
-          placeholderTextColor="grey"
-          returnKeyType="next"
-        />
-        <View style={styles.passwordContainer}>
-          <TextInput
-            style={styles.password}
-            defaultValue={password}
-            onChangeText={handlePasswordChange}
-            placeholder="Enter Password"
-            placeholderTextColor="grey"
-            returnKeyType="go"
-            secureTextEntry={secureTextEntry()}
-            textContentType="password"
-            keyboardType="default"
-            autoCorrect={false}
-          />
-          <Ionicons
-            name={visible.name}
-            size={24}
-            color="#1da"
-            style={styles.eyeContainer}
-            onPress={ToggleVisibilty}
-          />
-        </View>
-        <Pressable style={styles.forgotContainer}>
-          <Text style={styles.forgot}>Forgot Password?</Text>
-        </Pressable>
-        <Pressable style={styles.button} onPress={handleSignInClick}>
-          <Text style={{ fontSize: 20 }}>SIGN IN</Text>
-        </Pressable>
-        <Pressable
+      <Pressable
         onPress={() => {
           navigation.navigate('SignUp', { name: 'SignUp' })
         }}
@@ -113,13 +69,63 @@ const SignIn = ( {navigation }) => {
             style={{
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 16,
-              color: "white",
+              fontSize: 12,
+              color: "black",
+              fontFamily: "OpenSans_400Regular"
             }}
           >
-            Do not have an account? Register
+            Don't have an account? Sign up here.
           </Text>
         </Pressable>
+      </View>
+      <View style={styles.form}>
+        <TextInput
+          style={styles.email}
+          defaultValue={email}
+          onChangeText={handleEmailChange}
+          textContentType="emailAddress"
+          placeholder="E-mail Address"
+          placeholderTextColor="grey"
+          returnKeyType="next"
+        />
+        <View style={styles.passwordContainer}>
+          <TextInput
+            style={styles.password}
+            defaultValue={password}
+            onChangeText={handlePasswordChange}
+            placeholder="Password"
+            placeholderTextColor="grey"
+            returnKeyType="go"
+            secureTextEntry={secureTextEntry()}
+            textContentType="password"
+            keyboardType="default"
+            autoCorrect={false}
+          />
+          <Ionicons
+            name={visible.name}
+            size={24}
+            color="grey"
+            style={styles.eyeContainer}
+            onPress={ToggleVisibilty}
+          />
+        </View>
+        <Pressable style={styles.button} onPress={handleSignInClick}>
+          <Text style={{ fontSize: 20, fontFamily: "BebasNeue_400Regular", color:"#fff", fontStyle: "italic" }}>LOG IN</Text>
+        </Pressable>
+      </View>
+      <View>
+      <Text
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 10,
+              color: "black",
+              fontFamily: "OpenSans_400Regular",
+              marginTop: 20,
+            }}
+          >
+            Need help? Contact info@chaninicholas.com for assistance.
+          </Text>
       </View>
     </View>
   );
@@ -134,10 +140,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
     height: "100%",
-    backgroundColor: "#0C0C1C",
+    backgroundColor: "#F5F5F5",
   },
   headerContainer: {
     flexDirection: "row",
+    justifyContent:"center",
     width: "80%",
     height: 50,
     marginBottom: 40,
@@ -152,57 +159,59 @@ const styles = StyleSheet.create({
   },
   email: {
     width: "100%",
-    height: 60,
-    backgroundColor: "#0ff1",
+    height: 40,
+    backgroundColor: "#fff",
     borderRadius: 5,
     marginBottom: 35,
     padding: 10,
-    fontSize: 18,
+    fontSize: 12,
     color: "#fff",
+    fontFamily: "OpenSans_400Regular",
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
   },
   password: {
     width: "85%",
-    height: 60,
+    height: 40,
     borderRadius: 5,
     marginBottom: 35,
     padding: 10,
-    fontSize: 18,
+    fontSize: 12,
     color: "#fff",
+    fontFamily: "OpenSans_400Regular",
   },
 
   passwordContainer: {
     flexDirection: "row",
     width: "100%",
-    height: 60,
-    backgroundColor: "#0ff1",
+    height: 40,
+    backgroundColor: "#fff",
     borderRadius: 5,
     marginBottom: 35,
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
   },
   eyeContainer: {
     position: "absolute",
     right: 10,
-    top: 20,
+    top: 10,
   },
 
   button: {
-    width: "100%",
+    width: "50%",
     height: 50,
-    backgroundColor: "#1da",
-    borderRadius: 5,
+    backgroundColor: "#FF512F",
+    backgroundImage: "linear-gradient(to right, #FF512F, #DD2476)",
     justifyContent: "center",
     alignItems: "center",
+    borderRadius: 15,
+    height: 35,
+    width: 100,
     top: 30,
     padding: 10,
-  },
-
-  forgot: {
-    color: "#fff",
-    fontSize: 18,
-  },
-
-  forgotContainer: {
-    top: -20,
-    flexDirection: "row",
-    alignSelf: "flex-end",
   },
 });

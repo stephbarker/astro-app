@@ -36,7 +36,7 @@ export default function App() {
         </Stack.Group>
         ) : (
         <Stack.Group>
-        <Stack.Screen name="SignIn" component={SignIn} options={{ title: 'Sign In' }} />
+        <Stack.Screen name="SignIn" component={SignIn} options={{ title: 'Welcome!' }} />
         <Stack.Screen name="SignUp" component={SignUp} options={{ title: 'Sign Up' }} />
         </Stack.Group>
         )}
