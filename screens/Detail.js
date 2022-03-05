@@ -7,6 +7,9 @@ const Detail = ({ navigation, route }) => {
       <View>
         <Text>{horoscope.sign}</Text>
         <Text>{horoscope.daily}</Text>
+        <Pressable onPress={() => navigation.navigate('TarotCard', { name: 'TarotCard' })}>
+             <Text>Random Tarot Card?</Text>
+           </Pressable>   
       </View>
     );
   };
