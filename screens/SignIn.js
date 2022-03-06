@@ -165,7 +165,6 @@ const styles = StyleSheet.create({
     marginBottom: 35,
     padding: 10,
     fontSize: 12,
-    color: "#fff",
     fontFamily: "OpenSans_400Regular",
     shadowColor: '#171717',
     shadowOffset: {width: -2, height: 4},
@@ -173,13 +172,12 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
   },
   password: {
-    width: "85%",
+    width: "100%",
     height: 40,
     borderRadius: 5,
     marginBottom: 35,
     padding: 10,
     fontSize: 12,
-    color: "#fff",
     fontFamily: "OpenSans_400Regular",
   },
 

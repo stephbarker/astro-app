@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Pressable, StyleSheet, Text, View, FlatList } from "react-native";
-import { useFonts, BebasNeue_400Regular, OpenSans_400Regular, AutourOne_400Regular } from "@expo-google-fonts/dev";
+import { StyleSheet, Text, View, FlatList } from "react-native";
+import { useFonts, BebasNeue_400Regular, OpenSans_400Regular } from "@expo-google-fonts/dev";
 
 import { getTarotCard } from "../services/tarot-api";
 import SignOutButton from "../components/SignOutButton";
