@@ -4,8 +4,6 @@ import { useFonts, BebasNeue_400Regular } from "@expo-google-fonts/dev";
 
 import SignOutButton from "../components/SignOutButton";
 
-// import { handleSignout } from  "../services/Firebase";
-
 import horoscopeList from "../data";
 
 const Profile = ({ navigation }) => {

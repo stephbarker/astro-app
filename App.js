@@ -30,14 +30,14 @@ export default function App() {
       <Stack.Navigator>
         {User ? (
         <Stack.Group>
-        <Stack.Screen name="Profile" component={Profile} options={{ title: 'Horoscopes'}} />
+        <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false}} />
         <Stack.Screen name="Detail" component={Detail} options={{ title: 'Your Daily Horoscope' }} />
         <Stack.Screen name="TarotCard" component={TarotCard} options={{ title: 'Your Tarot Card' }}/>
         </Stack.Group>
         ) : (
         <Stack.Group>
-        <Stack.Screen name="SignIn" component={SignIn} options={{ title: 'Welcome!' }} />
-        <Stack.Screen name="SignUp" component={SignUp} options={{ title: 'Sign Up' }} />
+        <Stack.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />
+        <Stack.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
         </Stack.Group>
         )}
         
