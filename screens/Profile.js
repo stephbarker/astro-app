@@ -18,17 +18,9 @@ const Profile = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* <View style={styles.buttonCtr}>
-      <Pressable
-        style={styles.button}
-        onPress={() => {
-          handleSignout();
-          console.log("user signed out");
-        }}
-      >
-        <Text style={styles.buttonTxt}>Sign Out</Text>
-      </Pressable>
-      </View> */}
+     <View>
+       <Text style={styles.title}>DAILY HOROSCOPES</Text>
+     </View>
       {horoscopes.map((horoscope) => {
       const { id, img, sign, daily } = horoscope;
       return (
@@ -49,9 +41,16 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
-    backgroundColor: "#fff",
+    backgroundColor: "#F5F5F5",
     justifyContent: "center",
     alignItems: "center",
+  },
+  title: {
+    fontFamily: "BebasNeue_400Regular",
+    fontStyle: "italic",
+    fontSize: 40,
+    marginTop: 20,
+    textDecorationLine: "underline",
   },
   img: {
     margin: 20,
