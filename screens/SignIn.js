@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Image, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useFonts, BebasNeue_400Regular, OpenSans_400Regular } from "@expo-google-fonts/dev";
 
 import { handleSignIn } from "../services/Firebase";
 
@@ -9,11 +8,6 @@ const SignIn = ( {navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisibility] = useState({ name: "eye-off" });
-
-  useFonts({
-    BebasNeue_400Regular,
-    OpenSans_400Regular,
-  });
 
   const ToggleVisibilty = () => {
     if (visible.name === "eye") {

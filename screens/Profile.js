@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
-import { useFonts, BebasNeue_400Regular } from "@expo-google-fonts/dev";
 
 import SignOutButton from "../components/SignOutButton";
 
@@ -8,11 +7,6 @@ import horoscopeList from "../data";
 
 const Profile = ({ navigation }) => {
   const[horoscopes] = useState(horoscopeList);
-
-  //Access Google Fonts
-  useFonts({
-    BebasNeue_400Regular,
-  });
 
   return (
     <View style={styles.container}>

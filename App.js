@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useFonts, BebasNeue_400Regular } from '@expo-google-fonts/bebas-neue';
+import { OpenSans_400Regular } from '@expo-google-fonts/open-sans';
+import AppLoading from 'expo-app-loading';
 
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
@@ -24,6 +27,15 @@ export default function App() {
   }, []);
 
   const User = firebase.auth().currentUser;
+
+  let [fontsLoaded] = useFonts({
+    BebasNeue_400Regular,
+    OpenSans_400Regular
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
 
   return (
     <NavigationContainer>

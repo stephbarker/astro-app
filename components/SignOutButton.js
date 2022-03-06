@@ -1,17 +1,10 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { useFonts, BebasNeue_400Regular, OpenSans_400Regular } from "@expo-google-fonts/dev";
 
 import { handleSignout } from  "../services/Firebase";
 
 const SignOutButton = () => {
     
-    //Access Google Fonts
-  useFonts({
-    BebasNeue_400Regular,
-    OpenSans_400Regular,
-  });
-
     return (
    <View style={styles.buttonCtr}>
       <Pressable
