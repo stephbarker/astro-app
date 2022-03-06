@@ -59,6 +59,7 @@ const Detail = ({ navigation, route }) => {
       fontStyle: "italic",
       fontSize: 40,
       marginTop: 20,
+      textDecorationLine: "underline",
     },
     date: {
       fontFamily: "BebasNeue_400Regular",
