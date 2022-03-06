@@ -23,7 +23,7 @@ Install's all depencies.
 
 ### `expo start`
 
-Runs the app via the expo server. Run "w" in the command line to open the project via web browser or download the expo app to run it on your mobile device. Find docs [here.](https://docs.expo.dev/)
+Runs the app via the expo server. Run "w" in the command line to open the project via web browser. Use responsive mode in dev tools for more accurate viewing. If you have the Expo app on your mobile device, you can also open the app and select the project running on localhost:19006 to view it. Expo docs can be found [here.](https://docs.expo.dev/)
 
 ## Things to Note
 
