@@ -17,6 +17,7 @@ const Profile = ({ navigation }) => {
   return (
     <View style={styles.container}>
      <View>
+       <SignOutButton />
        <Text style={styles.title}>DAILY HOROSCOPES</Text>
      </View>
       {horoscopes.map((horoscope) => {
@@ -27,7 +28,6 @@ const Profile = ({ navigation }) => {
            </Pressable>        
     );
   })}
-        <SignOutButton />
     </View>
     );
   };

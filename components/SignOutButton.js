@@ -31,7 +31,11 @@ const SignOutButton = () => {
 
   const styles = StyleSheet.create({
     buttonCtr: {
-      marginBottom: 30,
+      display: "flex",
+      flexDirection: "row",      
+      justifyContent: "flex-end",
+      marginTop: 20,
+      marginRight: -80,
     },
     button: {
       backgroundColor: "#FF512F",

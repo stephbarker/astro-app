@@ -25,8 +25,10 @@ const Detail = ({ navigation, route }) => {
           <Pressable style={styles.randoBtn} onPress={() => navigation.navigate('TarotCard', { name: 'TarotCard' })}>
              <Text style={styles.randoBtnText}>Random Tarot Card?</Text>
           </Pressable> 
-        </View>
-           <SignOutButton />  
+        </View> 
+        <View style={styles.btnCtr}>
+        <SignOutButton />  
+        </View>  
       </View>
     );
   };
@@ -40,6 +42,9 @@ const Detail = ({ navigation, route }) => {
       paddingTop: '10%',
       backgroundColor: "#F5F5F5",
       height: "100vh",
+    },
+    btnCtr: {
+      marginRight: -180,
     },
     border: {
       alignItems: "center",
