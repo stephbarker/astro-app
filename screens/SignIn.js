@@ -74,7 +74,7 @@ const SignIn = ( {navigation }) => {
               fontFamily: "OpenSans_400Regular"
             }}
           >
-            Don't have an account? Sign up here.
+            Don't have an account? Sign up <Text style={{textDecorationLine:"underline"}}>here.</Text>
           </Text>
         </Pressable>
       </View>

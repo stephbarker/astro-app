@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Pressable, StyleSheet, Text, TextInput, Image, View } from "react-native";
+import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import { handleSignUp } from "../services/Firebase";
@@ -61,18 +61,23 @@ const SignUp = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text style={{ fontSize: 40, color: "#fff" }}>Create</Text>
-        {/* <Image
-          source={require("../../assets/images/broxnbg.png")}
-          style={{
-            height: 30,
-            width: 50,
-            top: 9,
-            marginRight: 5,
-            transform: [{ rotate: "-10deg" }],
-          }}
-        /> */}
-        <Text style={{ fontSize: 40, color: "#fff" }}>account</Text>
+        <Text
+            style={{
+              // fontSize: 12,
+              // color: "black",
+              // fontFamily: "OpenSans_400Regular",
+            }}
+          >
+            Welcome! We're so excited you're here. Go ahead and make an account.
+          </Text>
+      <Pressable
+          onPress={() =>
+            navigation.navigate('SignIn', { name: 'SignIn' })
+          }
+          style={styles.registerContainer}
+        >
+          <Text>Already have one? Sign in <Text style={{ textDecorationLine: "underline"}}>here.</Text></Text>
+        </Pressable>
       </View>
       <View style={styles.form}>
         <TextInput
@@ -80,7 +85,7 @@ const SignUp = ({ navigation }) => {
           defaultValue={email}
           onChangeText={handleEmailChange}
           textContentType="emailAddress"
-          placeholder="Email Address"
+          placeholder="E-mail Address"
           placeholderTextColor="grey"
           keyboardType="email-address"
           returnKeyType="next"
@@ -90,7 +95,7 @@ const SignUp = ({ navigation }) => {
             style={styles.password}
             defaultValue={password}
             onChangeText={handlePasswordChange}
-            placeholder="Enter Password"
+            placeholder="Password"
             placeholderTextColor="grey"
             returnKeyType="next"
             secureTextEntry={secureTextEntry()}
@@ -101,7 +106,7 @@ const SignUp = ({ navigation }) => {
           <Ionicons
             name={visible.name}
             size={24}
-            color="#1da"
+            color="grey"
             style={styles.eyeContainer}
             onPress={ToggleVisibilty}
           />
@@ -120,17 +125,23 @@ const SignUp = ({ navigation }) => {
             autoCorrect={false}
           />
         </View>
-        <Pressable
-          onPress={() =>
-            navigation.navigate('SignIn', { name: 'SignIn' })
-          }
-          style={styles.registerContainer}
-        >
-          <Text style={styles.register}>want to sign in?</Text>
-        </Pressable>
         <Pressable style={styles.button} onPress={handleSubmit}>
-          <Text style={{ fontSize: 20 }}>SIGN UP</Text>
+          <Text style={{ fontSize: 20, fontFamily: "BebasNeue_400Regular", color:"#fff", fontStyle: "italic" }}>SIGN UP</Text>
         </Pressable>
+        <View>
+      <Text
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 10,
+              color: "black",
+              fontFamily: "OpenSans_400Regular",
+              marginTop: 20,
+            }}
+          >
+            Need help? Contact info@chaninicholas.com for assistance.
+          </Text>
+      </View>
       </View>
     </View>
   );
@@ -140,19 +151,24 @@ export default SignUp;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: "flex",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     width: "100%",
     height: "100%",
-    backgroundColor: "#0C0C1C",
+    backgroundColor: "#F5F5F5",
   },
   headerContainer: {
-    flexDirection: "row",
     width: "80%",
-    height: 50,
-    marginBottom: 40,
-    top: -20,
+    marginBottom: 80,
+    top: 40,
+    fontSize: 12,
+    color: "black",
+    fontFamily: "OpenSans_400Regular",
+  },
+  registerContainer: {
+    marginBottom: 60,
+    top: 20,
   },
   form: {
     width: "80%",
@@ -163,56 +179,56 @@ const styles = StyleSheet.create({
   },
   email: {
     width: "100%",
-    height: 60,
-    backgroundColor: "#0ff1",
+    height: 40,
+    backgroundColor: "#fff",
     borderRadius: 5,
     marginBottom: 35,
     padding: 10,
-    fontSize: 18,
-    color: "#fff",
+    fontSize: 12,
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
   },
   password: {
     width: "85%",
-    height: 60,
+    height: 40,
     borderRadius: 5,
     marginBottom: 35,
     padding: 10,
-    fontSize: 18,
-    color: "#fff",
+    fontSize: 12,
   },
 
   passwordContainer: {
     flexDirection: "row",
     width: "100%",
-    height: 60,
-    backgroundColor: "#0ff1",
+    height: 40,
+    backgroundColor: "#fff",
     borderRadius: 5,
     marginBottom: 35,
+    shadowColor: '#171717',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
   },
   eyeContainer: {
     position: "absolute",
     right: 10,
-    top: 20,
+    top: 10,
   },
 
   button: {
-    width: "100%",
+    width: "50%",
     height: 50,
-    backgroundColor: "#1da",
-    borderRadius: 5,
+    backgroundColor: "#FF512F",
+    backgroundImage: "linear-gradient(to right, #FF512F, #DD2476)",
     justifyContent: "center",
     alignItems: "center",
+    borderRadius: 15,
+    height: 35,
+    width: 100,
     top: 30,
     padding: 10,
-  },
-
-  register: {
-    color: "#fff",
-    fontSize: 18,
-  },
-  registerContainer: {
-    top: -20,
-    flexDirection: "row",
-    alignSelf: "flex-end",
+    marginBottom: 40,
   },
 });
