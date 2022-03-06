@@ -17,13 +17,15 @@ const Detail = ({ navigation, route }) => {
     
   const { horoscope } = route.params;
     return (
-      <View style={styles.hscopeCtr}>
-        <Text style={styles.sign}>{horoscope.sign}</Text>
-        <Text style={styles.date}>{today}</Text>
-        <Text style={styles.daily}>{horoscope.daily}</Text>
-        <Pressable style={styles.randoBtn} onPress={() => navigation.navigate('TarotCard', { name: 'TarotCard' })}>
+      <View style={styles.screenCtr}>
+        <View style={styles.border}>
+          <Text style={styles.sign}>{horoscope.sign}</Text>
+          <Text style={styles.date}>{today}</Text>
+          <Text style={styles.daily}>{horoscope.daily}</Text>
+          <Pressable style={styles.randoBtn} onPress={() => navigation.navigate('TarotCard', { name: 'TarotCard' })}>
              <Text style={styles.randoBtnText}>Random Tarot Card?</Text>
-           </Pressable> 
+          </Pressable> 
+        </View>
            <SignOutButton />  
       </View>
     );
@@ -32,12 +34,22 @@ const Detail = ({ navigation, route }) => {
   export default Detail;
 
   const styles = StyleSheet.create({
-    hscopeCtr: {
+    screenCtr: {
       display: "flex",
       alignItems: "center",
       paddingTop: '10%',
-      backgroundColor: "#fff",
+      backgroundColor: "#F5F5F5",
       height: "100vh",
+    },
+    border: {
+      alignItems: "center",
+      width: "90%",
+      borderRadius: 10,
+      outlineColor: "black",
+      outlineStyle: "solid",
+      outlineWidth: 4,
+      margin: 20,
+      backgroundColor: "#fff",
     },
     sign: {
       display: "flex",
@@ -46,6 +58,7 @@ const Detail = ({ navigation, route }) => {
       fontFamily: "BebasNeue_400Regular",
       fontStyle: "italic",
       fontSize: 40,
+      marginTop: 20,
     },
     date: {
       fontFamily: "BebasNeue_400Regular",
