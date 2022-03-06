@@ -133,7 +133,7 @@ const SignUp = ({ navigation }) => {
               marginTop: 20,
             }}
           >
-            Need help? Contact info@chaninicholas.com for assistance.
+            Need help? Contact info@help.com for assistance.
           </Text>
       </View>
       </View>
