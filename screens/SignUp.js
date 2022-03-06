@@ -61,15 +61,9 @@ const SignUp = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text
-            style={{
-              // fontSize: 12,
-              // color: "black",
-              // fontFamily: "OpenSans_400Regular",
-            }}
-          >
+        <Text>
             Welcome! We're so excited you're here. Go ahead and make an account.
-          </Text>
+        </Text>
       <Pressable
           onPress={() =>
             navigation.navigate('SignIn', { name: 'SignIn' })
@@ -191,7 +185,7 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
   },
   password: {
-    width: "85%",
+    width: "100%",
     height: 40,
     borderRadius: 5,
     marginBottom: 35,
