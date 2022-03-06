@@ -31,7 +31,7 @@ const TarotCard = (props) => {
         <FlatList
             data={tarotCard.cards}
             keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => (<View style={styles.cardCtr}>
+            renderItem={({ item }) => (<View style={styles.border}>
               <Text style={styles.cardTitle}>{item.name}</Text>
               <Text style={styles.subTitle}>Description:</Text>
               <Text style={styles.content}>{item.desc}</Text>
@@ -52,11 +52,19 @@ const TarotCard = (props) => {
   const styles = StyleSheet.create({
     screenCtr: {
       paddingTop: '10%',
-      backgroundColor: "#fff",
+      backgroundColor: "#F5F5F5",
       height: "100vh",
     },
-    cardCtr: {
-      
+    border: {
+      width: "90%",
+      borderRadius: 10,
+      outlineColor: "black",
+      outlineStyle: "solid",
+      outlineWidth: 4,
+      margin: 20,
+      backgroundColor: "#fff",
+      paddingTop: 20,
+      paddingBottom: 20,
     },
     cardTitle: {
       display: "flex",
@@ -65,6 +73,7 @@ const TarotCard = (props) => {
       fontFamily: "BebasNeue_400Regular",
       fontStyle: "italic",
       fontSize: 40,
+      textDecorationLine: "underline",
     },
     subTitle: {
       marginLeft: 25,
@@ -73,6 +82,7 @@ const TarotCard = (props) => {
       fontFamily: "BebasNeue_400Regular",
       fontStyle: "italic",
       fontSize: 20,
+      textDecorationLine: "underline",
     },
     content: {
       margin: 20,
