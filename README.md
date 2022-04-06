@@ -48,7 +48,7 @@ Tarot Card Screen
 
 ## Future Goals
 
-- Work on the real thing! :)
+- Add functionality for horoscopes to change daily.
 
 Hope you enjoy!
 
